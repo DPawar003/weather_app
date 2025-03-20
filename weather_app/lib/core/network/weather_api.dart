@@ -16,4 +16,11 @@ abstract class WeatherApi {
     @Query("appid") String apiKey,
     @Query("units") String units,
   );
+  
+  @GET("weather")
+  Future<WeatherModel> getWeatherByCity(
+    @Query("q") String cityName,
+    @Query("appid") String apiKey,
+    @Query("units") String units,
+  );
 }

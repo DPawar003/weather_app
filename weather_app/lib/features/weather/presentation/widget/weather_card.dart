@@ -201,7 +201,7 @@ class WeatherWidget extends StatelessWidget {
                       ),
                       const SizedBox(height: 10),
                       Text(
-                        "Visibility: ${(weather.visibility / 1000).toStringAsFixed(1)} km",
+                        "Visibility: ${(weather.visibility != null ? (weather.visibility! / 1000).toStringAsFixed(1) : 'N/A')} km",
                         style: const TextStyle(color: Colors.white, fontSize: 16),
                       ),
                       Container(
@@ -212,7 +212,7 @@ class WeatherWidget extends StatelessWidget {
                         child: ClipRRect(
                           borderRadius: BorderRadius.circular(4),
                           child: LinearProgressIndicator(
-                            value: weather.visibility / 10000,
+                            value: (weather.visibility != null ? weather.visibility! / 10000 : 0),
                             backgroundColor: Color.fromRGBO(244, 246, 248, 0.3), // Equivalent to blue[500] with opacity
 
                             valueColor: const AlwaysStoppedAnimation<Color>(Colors.green),
